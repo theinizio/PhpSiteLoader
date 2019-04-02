@@ -1,0 +1,34 @@
+version: '3'
+services:
+
+
+  #######################################################################
+  #################### yoursmartchef.com ################################
+  #######################################################################
+
+  #PHP Service
+  yoursmartchef_com_web:
+    build:
+      context: .
+      dockerfile: ./yoursmartchef.com/docker/php-fpm/Dockerfile
+    image: digitalocean.com/php
+    container_name: "yoursmartchef_com-app"
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - db
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/yoursmartchef.com/
+    volumes:
+      - ./yoursmartchef.com/:/var/www/yoursmartchef.com/
+      - ./yoursmartchef.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+    networks:
+      - app-network
+
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge

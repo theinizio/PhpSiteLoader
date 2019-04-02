@@ -10,34 +10,15 @@ services:
     restart: unless-stopped
     tty: true
     depends_on:
-      - powerliftguru_com_web
-      - fillingyoga_com_web
-      - marathonexpert_com_web
-      - yourdailyworkouts_com_web
-      - yourfitnesstrainer365_com_web
+      - yoursmartchef_com_web
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
 
-      - ./astixlimited.com/:/var/www/astixlimited.com/
-      - ./astixlimited.com/docker/nginx/astixlimited.conf:/etc/nginx/conf.d/astixlimited.conf
-
-      - ./powerliftguru.com/:/var/www/powerliftguru.com/
-      - ./powerliftguru.com/docker/nginx/powerliftguru.conf:/etc/nginx/conf.d/powerliftguru.conf
-
-      - ./fillingyoga.com/:/var/www/fillingyoga.com/
-      - ./fillingyoga.com/docker/nginx/fillingyoga.conf:/etc/nginx/conf.d/fillingyoga.conf
-
-      - ./marathonexpert.com/:/var/www/marathonexpert.com/
-      - ./marathonexpert.com/docker/nginx/marathonexpert.conf:/etc/nginx/conf.d/marathonexpert.conf
-
-      - ./yourdailyworkouts.com/:/var/www/yourdailyworkouts.com/
-      - ./yourdailyworkouts.com/docker/nginx/yourdailyworkouts.conf:/etc/nginx/conf.d/yourdailyworkouts.conf
-
-      - ./yourfitnesstrainer365.com/:/var/www/yourfitnesstrainer365.com/
-      - ./yourfitnesstrainer365.com/docker/nginx/yourfitnesstrainer365.conf:/etc/nginx/conf.d/yourfitnesstrainer365.conf
+      - ./yoursmartchef.com/:/var/www/yoursmartchef.com/
+      - ./yoursmartchef.com/docker/nginx/yoursmartchef.conf:/etc/nginx/conf.d/yoursmartchef.conf
 
       - /etc/letsencrypt:/etc/letsencrypt
     networks:
@@ -50,7 +31,7 @@ services:
 
   #MySQL Service
   db:
-    image: mysql:5.7.22
+    image: mysql:5.7
     container_name: "${DOCKER_PREFIX}-db"
     restart: unless-stopped
     tty: true

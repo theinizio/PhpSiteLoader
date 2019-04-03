@@ -19,6 +19,23 @@ services:
     networks:
       - app-network
 
+  #######################################################################
+  #################### yourpersonalchief.com ################################
+  #######################################################################
+
+  #NodeJS Service
+  yourpersonalchief_com_nodejs:
+    build:
+      context: .
+      dockerfile: ./yourpersonalchief.com/docker/nodejs/Dockerfile
+    container_name: "${DOCKER_PREFIX}-yourpersonalchief-nodejs"
+    depends_on:
+      - yourpersonalchief_com_web
+    volumes:
+      - ./yourpersonalchief.com/:/var/www/
+    networks:
+      - app-network
+
 
   #Nginx Service
   webserver:
@@ -28,6 +45,7 @@ services:
     tty: true
     depends_on:
       - yoursmartchef_com_web
+      - yourpersonalchief_com_web
     ports:
       - "80:80"
     volumes:
@@ -35,6 +53,9 @@ services:
 
       - ./yoursmartchef.com/:/var/www/yoursmartchef.com/
       - ./yoursmartchef.com/docker/nginx/local.conf:/etc/nginx/conf.d/yoursmartchef.conf
+
+      - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
+      - ./yourpersonalchief.com/docker/nginx/local.conf:/etc/nginx/conf.d/yourpersonalchief.conf
     networks:
       - app-network
 

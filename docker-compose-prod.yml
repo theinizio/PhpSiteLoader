@@ -11,6 +11,7 @@ services:
     tty: true
     depends_on:
       - yoursmartchef_com_web
+      - yourpersonalchief_com_web
     ports:
       - "80:80"
       - "443:443"
@@ -19,6 +20,9 @@ services:
 
       - ./yoursmartchef.com/:/var/www/yoursmartchef.com/
       - ./yoursmartchef.com/docker/nginx/yoursmartchef.conf:/etc/nginx/conf.d/yoursmartchef.conf
+
+      - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
+      - ./yourpersonalchief.com/docker/nginx/yourpersonalchief.conf:/etc/nginx/conf.d/yourpersonalchief.conf
 
       - /etc/letsencrypt:/etc/letsencrypt
     networks:

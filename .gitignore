@@ -1,5 +1,8 @@
 .env
 .idea/
 Docs/
-yoursmartchef.com/
+docker/mysql/*.sql
+docker/mysql/*.zip
 
+yoursmartchef.com/
+yourpersonalchief.com/

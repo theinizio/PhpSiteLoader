@@ -27,6 +27,31 @@ services:
     networks:
       - app-network
 
+  #######################################################################
+  #################### yourpersonalchief.com ################################
+  #######################################################################
+
+  #PHP Service
+  yourpersonalchief_com_web:
+    build:
+      context: .
+      dockerfile: ./yourpersonalchief.com/docker/php-fpm/Dockerfile
+    image: digitalocean.com/php
+    container_name: "yourpersonalchief_com-app"
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - db
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/yourpersonalchief.com/
+    volumes:
+      - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
+      - ./yourpersonalchief.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+    networks:
+      - app-network
+
 
 #Docker Networks
 networks:

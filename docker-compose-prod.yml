@@ -12,6 +12,7 @@ services:
     depends_on:
       - yoursmartchef_com_web
       - yourpersonalchief_com_web
+      - yourperfectfood_com_web
     ports:
       - "80:80"
       - "443:443"
@@ -23,6 +24,9 @@ services:
 
       - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
       - ./yourpersonalchief.com/docker/nginx/yourpersonalchief.conf:/etc/nginx/conf.d/yourpersonalchief.conf
+
+      - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
+      - ./yourperfectfood.com/docker/nginx/yourperfectfood.conf:/etc/nginx/conf.d/yourperfectfood.conf
 
       - /etc/letsencrypt:/etc/letsencrypt
     networks:

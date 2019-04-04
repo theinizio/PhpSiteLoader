@@ -53,6 +53,32 @@ services:
       - app-network
 
 
+  #######################################################################
+  #################### yourperfectfood.com ################################
+  #######################################################################
+
+  #PHP Service
+  yourperfectfood_com_web:
+    build:
+      context: .
+      dockerfile: ./yourperfectfood.com/docker/php-fpm/Dockerfile
+    image: digitalocean.com/php
+    container_name: "yourperfectfood_com-app"
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - db
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/yourperfectfood.com/
+    volumes:
+      - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
+      - ./yourperfectfood.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+    networks:
+      - app-network
+
+
 #Docker Networks
 networks:
   app-network:

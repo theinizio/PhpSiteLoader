@@ -37,6 +37,24 @@ services:
       - app-network
 
 
+  #######################################################################
+  #################### yourperfectfood.com ################################
+  #######################################################################
+
+  #NodeJS Service
+  yourperfectfood_com_nodejs:
+    build:
+      context: .
+      dockerfile: ./yourperfectfood.com/docker/nodejs/Dockerfile
+    container_name: "${DOCKER_PREFIX}-yourperfectfood-nodejs"
+    depends_on:
+      - yourperfectfood_com_web
+    volumes:
+      - ./yourperfectfood.com/:/var/www/
+    networks:
+      - app-network
+
+
   #Nginx Service
   webserver:
     image: nginx:alpine
@@ -46,6 +64,7 @@ services:
     depends_on:
       - yoursmartchef_com_web
       - yourpersonalchief_com_web
+      - yourperfectfood_com_web
     ports:
       - "80:80"
     volumes:
@@ -56,6 +75,9 @@ services:
 
       - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
       - ./yourpersonalchief.com/docker/nginx/local.conf:/etc/nginx/conf.d/yourpersonalchief.conf
+
+      - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
+      - ./yourperfectfood.com/docker/nginx/local.conf:/etc/nginx/conf.d/yourperfectfood.conf
     networks:
       - app-network
 

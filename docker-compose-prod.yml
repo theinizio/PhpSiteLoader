@@ -13,6 +13,7 @@ services:
       - yoursmartchef_com_web
       - yourpersonalchief_com_web
       - yourperfectfood_com_web
+      - inspireforcooking_com_web
     ports:
       - "80:80"
       - "443:443"
@@ -27,6 +28,9 @@ services:
 
       - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
       - ./yourperfectfood.com/docker/nginx/yourperfectfood.conf:/etc/nginx/conf.d/yourperfectfood.conf
+
+      - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
+      - ./inspireforcooking.com/docker/nginx/inspireforcooking.conf:/etc/nginx/conf.d/inspireforcooking.conf
 
       - /etc/letsencrypt:/etc/letsencrypt
     networks:

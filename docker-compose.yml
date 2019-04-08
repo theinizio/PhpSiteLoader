@@ -79,6 +79,32 @@ services:
       - app-network
 
 
+  #######################################################################
+  #################### inspireforcooking.com ################################
+  #######################################################################
+
+  #PHP Service
+  inspireforcooking_com_web:
+    build:
+      context: .
+      dockerfile: ./inspireforcooking.com/docker/php-fpm/Dockerfile
+    image: digitalocean.com/php
+    container_name: "inspireforcooking_com-app"
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - db
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/inspireforcooking.com/
+    volumes:
+      - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
+      - ./inspireforcooking.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+    networks:
+      - app-network
+
+
 #Docker Networks
 networks:
   app-network:

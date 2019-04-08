@@ -55,6 +55,24 @@ services:
       - app-network
 
 
+  #######################################################################
+  #################### inspireforcooking.com ################################
+  #######################################################################
+
+  #NodeJS Service
+  inspireforcooking_com_nodejs:
+    build:
+      context: .
+      dockerfile: ./inspireforcooking.com/docker/nodejs/Dockerfile
+    container_name: "${DOCKER_PREFIX}-inspireforcooking-nodejs"
+    depends_on:
+      - inspireforcooking_com_web
+    volumes:
+      - ./inspireforcooking.com/:/var/www/
+    networks:
+      - app-network
+
+
   #Nginx Service
   webserver:
     image: nginx:alpine
@@ -65,6 +83,7 @@ services:
       - yoursmartchef_com_web
       - yourpersonalchief_com_web
       - yourperfectfood_com_web
+      - inspireforcooking_com_web
     ports:
       - "80:80"
     volumes:
@@ -78,6 +97,9 @@ services:
 
       - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
       - ./yourperfectfood.com/docker/nginx/local.conf:/etc/nginx/conf.d/yourperfectfood.conf
+
+      - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
+      - ./inspireforcooking.com/docker/nginx/local.conf:/etc/nginx/conf.d/inspireforcooking.conf
     networks:
       - app-network
 

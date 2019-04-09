@@ -14,6 +14,7 @@ services:
       - yourpersonalchief_com_web
       - yourperfectfood_com_web
       - inspireforcooking_com_web
+      - findyourfoodstyle_com_web
     ports:
       - "80:80"
       - "443:443"
@@ -31,6 +32,9 @@ services:
 
       - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
       - ./inspireforcooking.com/docker/nginx/inspireforcooking.conf:/etc/nginx/conf.d/inspireforcooking.conf
+
+      - ./findyourfoodstyle.com/:/var/www/findyourfoodstyle.com/
+      - ./findyourfoodstyle.com/docker/nginx/findyourfoodstyle.conf:/etc/nginx/conf.d/findyourfoodstyle.conf
 
       - /etc/letsencrypt:/etc/letsencrypt
     networks:

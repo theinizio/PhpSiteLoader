@@ -105,6 +105,32 @@ services:
       - app-network
 
 
+  #######################################################################
+  #################### findyourfoodstyle.com ################################
+  #######################################################################
+
+  #PHP Service
+  findyourfoodstyle_com_web:
+    build:
+      context: .
+      dockerfile: ./findyourfoodstyle.com/docker/php-fpm/Dockerfile
+    image: digitalocean.com/php
+    container_name: "findyourfoodstyle_com-app"
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - db
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/findyourfoodstyle.com/
+    volumes:
+      - ./findyourfoodstyle.com/:/var/www/findyourfoodstyle.com/
+      - ./findyourfoodstyle.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+    networks:
+      - app-network
+
+
 #Docker Networks
 networks:
   app-network:

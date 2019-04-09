@@ -73,6 +73,24 @@ services:
       - app-network
 
 
+  #######################################################################
+  #################### findyourfoodstyle.com ################################
+  #######################################################################
+
+  #NodeJS Service
+  findyourfoodstyle_com_nodejs:
+    build:
+      context: .
+      dockerfile: ./findyourfoodstyle.com/docker/nodejs/Dockerfile
+    container_name: "${DOCKER_PREFIX}-findyourfoodstyle-nodejs"
+    depends_on:
+      - findyourfoodstyle_com_web
+    volumes:
+      - ./findyourfoodstyle.com/:/var/www/
+    networks:
+      - app-network
+
+
   #Nginx Service
   webserver:
     image: nginx:alpine
@@ -84,6 +102,7 @@ services:
       - yourpersonalchief_com_web
       - yourperfectfood_com_web
       - inspireforcooking_com_web
+      - findyourfoodstyle_com_web
     ports:
       - "80:80"
     volumes:
@@ -100,6 +119,9 @@ services:
 
       - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
       - ./inspireforcooking.com/docker/nginx/local.conf:/etc/nginx/conf.d/inspireforcooking.conf
+
+      - ./findyourfoodstyle.com/:/var/www/findyourfoodstyle.com/
+      - ./findyourfoodstyle.com/docker/nginx/local.conf:/etc/nginx/conf.d/findyourfoodstyle.conf
     networks:
       - app-network
 

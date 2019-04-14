@@ -36,6 +36,8 @@ services:
       - ./findyourfoodstyle.com/:/var/www/findyourfoodstyle.com/
       - ./findyourfoodstyle.com/docker/nginx/findyourfoodstyle.conf:/etc/nginx/conf.d/findyourfoodstyle.conf
 
+      - ./descriptors/:/var/www/descriptors/
+
       - /etc/letsencrypt:/etc/letsencrypt
     networks:
       - app-network

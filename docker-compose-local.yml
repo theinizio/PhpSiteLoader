@@ -122,6 +122,9 @@ services:
 
       - ./findyourfoodstyle.com/:/var/www/findyourfoodstyle.com/
       - ./findyourfoodstyle.com/docker/nginx/local.conf:/etc/nginx/conf.d/findyourfoodstyle.conf
+
+      - ./descriptors/:/var/www/descriptors/
+#      - ./descriptors/nginx/ffstyleserv.conf:/etc/nginx/conf.d/ffstyleserv.conf
     networks:
       - app-network
 

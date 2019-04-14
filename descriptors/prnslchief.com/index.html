@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home</title>
+
+    <link href="css/app.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<header id="header-unsubscribe">
+    <div class="header">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </div>
+        <div class="navbar-list"><!-- :class="{'toggleActive': menuToggle}" -->
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a class="" href="subscription.html">My subscription</a></li>
+            </ul>
+        </div>
+        <div class="menu-icon"><!--  :class="{'effect': menuToggle}" @click="menuToggle = !menuToggle" -->
+            <div class="menu-icon-line"></div>
+        </div>
+    </div>
+</header>
+
+<section id="get-in-touch">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form">
+                    <form id="form-get-in-touch">
+                        <div class="form__title">GET IN TOUCH</div>
+                        <div class="form__row">
+                            <label class="form__label" for="first_name">
+                                First Name
+                                <!--<span class="msg-required">{{ errors.first('First Name') }}</span>-->
+                            </label>
+                            <input
+                                    name="first_name"
+                                    class="form__inp"
+                                    id="first_name">
+                        </div>
+                        <div class="form__row">
+                            <label class="form__label" for="last_name">
+                                Last Name
+                                <!--<span class="msg-required">{{ errors.first('Last Name') }}</span>-->
+                            </label>
+                            <input
+                                    name="last_name"
+                                    class="form__inp"
+                                    id="last_name">
+                        </div>
+                        <div class="form__row">
+                            <label class="form__label" for="email">
+                                E-mail
+                                <!--<span class="msg-required">{{ errors.first('E-mail') }}</span>-->
+                            </label>
+                            <input
+                                    name="email"
+                                    class="form__inp"
+                                    id="email">
+                        </div>
+                        <div class="form__row">
+                            <label class="form__label" for="message">
+                                Message
+                            </label>
+                            <textarea
+                                    name="message"
+                                    class="form__textarea"
+                                    id="message"></textarea>
+                        </div>
+                        <button class="form__btn">Send</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="cancel-sub">
+                    <div class="cancel-sub__title">
+                        <div class="title__row title__red">CANCEL YOUR SUBSCRIPTION</div>
+                        <div class="title__row">IN A ONE CLICK WITH</div>
+                        <div class="title_row">OUR ONLINE CANCELLATION SERVICE</div>
+                    </div>
+                    <p class="cancel-sub__p">Our operators knows all the answers and will give you effective and useful
+                        advice in your case.</p>
+                    <p class="cancel-sub__p">Our subscription services offer you the solution of all the difference of
+                        your problems with our unique coaching programmes, assisting to the client and qualified
+                        expertise. We pursue one goal - to make your life bright and light.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="desc__block">Fast and efficient experts</div>
+                            <div class="desc__block">Professional partners</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="desc__block">Affinity Services Specialist</div>
+                            <div class="desc__block">100% free, no banking data</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="question-section">
+    <div class="container">
+        <div class="row">
+            <div class="offset-sm-3 col-sm-6 offset-md-0 col-md-4">
+                <img class="question-section__img" src="img/call.png" alt="">
+            </div>
+            <div class="offset-md-1 col-md-7">
+                <h4>CUSTOMER SERVICE FOR ALL YOUR ONLINE SUBSCRIPTIONS</h4>
+                <p>Easy management of your subscriptions. We offer you a practical management of the different
+                    subscriptions. Fill in the form with the e-mail address you used when you subscribed and you are in
+                    your customer account in one click. All the information is there to make your managing comfortable
+                    and give you maximum control of your subscriptions. You can also contact us to ask for help,
+                    unsubscribe or make a complaint. Everything is prepared to ensure that you can manage all the
+                    subscriptions in an easier way possible.</p>
+                <h4>AGENTS AT YOUR SERVICE</h4>
+                <p>Our agents are experts in the after-sales services and have all the solutions of your problems. They
+                    work 24/7, so you can contact the agents by live chat or by phone via our toll free number any time
+                    you need. You can also send them an email to which they will respond within 48 hours. If you have
+                    problems in managing your subscription on ports or you have any other question, contact us.</p>
+            </div>
+        </div>
+
+        <div class="h2__title faq__title">FAQ</div>
+        <div class="question-block"><!-- 1 -->
+            <div class="question-block__title">What services you offer?</div>
+            <div class="question-block__answer active">Our service offers you the easiest way of managing your
+                subscription. You only have to go to your customer account and fill in the form with an e-mail address.
+                Our agents will contact you and you can obtain all the information concerning your subscription or
+                cancel it.
+            </div>
+        </div>
+        <div class="question-block"><!-- 2 -->
+            <div class="question-block__title">I don’t remember signing up to your subscription.</div>
+            <div class="question-block__answer">You have not signed up to our subscription. Probably you have signed up
+                to a subscription at one of our partner sites for which we provide after-sales service. That is why you
+                have the direct debits on your bank statement.
+            </div>
+        </div>
+        <div class="question-block"><!-- 3 -->
+            <div class="question-block__title">How can i find my chosen offer?</div>
+            <div class="question-block__answer">If you want to know the details of your offer, just put your registering
+                email address into the form at the homepage and then our agent will contact you and provide information
+                you are interested in about your subscription.
+            </div>
+        </div>
+        <div class="question-block"><!-- 4 -->
+            <div class="question-block__title">I forgot my registered email address? What i can do?
+            </div>
+            <div class="question-block__answer">Our agents will help you with this problem. They will find your file,
+                you just need to contact them by email, phone or chat.
+            </div>
+        </div>
+        <div class="question-block"><!-- 5 -->
+            <div class="question-block__title">I have a question, who can i contact with?</div>
+            <div class="question-block__answer">Our friendly team works 24/7, so you can contact us anytime you need by
+                chat or by phone. You can also send us the email with your question and we will respond within 48 hours.
+            </div>
+        </div>
+        <div class="question-block"><!-- 6 -->
+            <div class="question-block__title">How can i cancel my subscription?</div>
+            <div class="question-block__answer">If you wish to cancel your subscription, you must go to your customer
+                account and click on the button "Unsubscribe". But you will no longer benefit from the services of our
+                site and will no longer be charged by the portals. A confirmation email will be sent.
+            </div>
+        </div>
+        <div class="question-block"><!-- 7 -->
+            <div class="question-block__title">I have some difficulties using member area, what should
+                i do?
+            </div>
+            <div class="question-block__answer">If your difficulties are connected with the use of your personal account
+                please contact our technical support. They will help you solve the problem that concerns you.
+            </div>
+        </div>
+        <div class="question-block"><!-- 8 -->
+            <div class="question-block__title">I do not recognize the transaction on my bank
+                statement?
+            </div>
+            <div class="question-block__answer">If billzene is mentioned on your bank account or credit card statement
+                this means that we have charged you on behalf of an online merchant and our customer service is at your
+                disposal to help you solve your problem and respond to your request. You will need at least two of the
+                following information: Credit Card, E-mail or Member Reference.
+            </div>
+        </div>
+        <div class="question-block"><!-- 9 -->
+            <div class="question-block__title">I want to cancel my registration? How can i do this?
+            </div>
+            <div class="question-block__answer">You have two ways to do this. You can do it yourself in your personal
+                account or contact our service. For this operation, we will need some information: Username, Credit
+                Card, E-mail or Member Reference.
+            </div>
+        </div>
+        <div class="question-block"><!-- 10 -->
+            <div class="question-block__title">I canceled my registration but still have access to the
+                members area
+            </div>
+            <div class="question-block__answer">We will always send you a confirmation email after your cancellation.
+                This ensures that we will not charge you for the next billing cycle. If you have received the
+                cancellation email, it is sure that you will not be charged again. However, you will continue to have
+                access to the member area until the end of the period you paid.
+            </div>
+        </div>
+        <div class="question-block"><!-- 11 -->
+            <div class="question-block__title">Can I send my credit card number by e-mail?</div>
+            <div class="question-block__answer">Never send your credit card number by e-mail. This is confidential
+                information. Always use our online forms for your own safety. If for some reason you can’t do this, call
+                our Customer Service.
+            </div>
+        </div>
+        <div class="question-block"><!-- 12 -->
+            <div class="question-block__title">What is the CVV code and where can I find it?</div>
+            <div class="question-block__answer">It is an additional security code to protect you from possible fraud and
+                is printed on the back of your card. It consists of the last 3 numbers that follow the name of your
+                account on the back of your credit card.
+            </div>
+        </div>
+        <div class="question-block"><!-- 13 -->
+            <div class="question-block__title">I forgot the web address of the site I bought. How can
+                I get it back?
+            </div>
+            <div class="question-block__answer">To receive the web address by E-mail: - If you have at least two of the
+                following details: Username, Credit Card, E-mail or Member Reference.
+            </div>
+        </div>
+        <div class="question-block"><!-- 14 -->
+            <div class="question-block__title">I have a question that FAQ does not answer. What can I
+                do?
+            </div>
+            <div class="question-block__answer">If you have any problems or questions, we will be happy to hear from you
+                and provide qualified assistance. Our team works for you and strives to provide you with top-quality
+                services. Feel free to contact us!
+            </div>
+        </div>
+        <div class="question-block"><!-- 15 -->
+            <div class="question-block__title">I have trouble logging in to my account. Username and
+                password do not work. What should I do?
+            </div>
+            <div class="question-block__answer">Make sure that you have entered your details exactly as indicated in the
+                email confirmation. To receive the web address by E-mail we need your Username, Credit Card, E-mail or
+                Member Reference.
+            </div>
+        </div>
+
+        <div class="h2__title">
+            WE ARE HERE TO MAKE YOUR LIFE BRIGHTER
+            <div class="subtitle">stay with us and use</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="desc__block">support 24/7, our experts knows what you are looking for</div>
+                <div class="desc__block">quick answer and solution of your request within 12 hours</div>
+            </div>
+            <div class="col-md-6">
+                <div class="desc__block">absolutely free service</div>
+                <div class="desc__block">solutions that propose our experts are always clear simple and quick</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer-unsubscribe">
+    <ul class="footer-list">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a class="" href="subscription.html">My subscription</a></li>
+    </ul>
+</footer>
+
+
+<script src="libs/jquery.min.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+#cancellation {
+  background-color: #E7E9EC;
+  min-height: calc(100vh - 80px);
+  padding-top: 60px;
+  padding-bottom: 125px;
+
+  h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 60px;
+    font-weight: normal;
+    padding-top: 100px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: $colorBlue;
+  }
+
+  .cancellation-form {
+    display: block;
+    width: 100%;
+    max-width: 570px;
+    margin: 0 auto;
+    background-color: $colorBlue;
+    padding: 35px;
+
+    &__row {
+      position: relative;
+
+      .msg-required {
+        position: absolute;
+        right: 0;
+        bottom: -15px;
+        color: $colorRed;
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+      }
+    }
+
+    &__email {
+      font-family: Montserrat, sans-serif;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    &__inp {
+      display: block;
+      width: 100%;
+      height: 40px;
+      padding: 5px 10px;
+      color: #000;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      font-size: 18px;
+      font-family: Montserrat, sans-serif;
+
+      &.inp-required {
+        color: $colorRed;
+        border-color: $colorRed;
+      }
+    }
+
+    &__info {
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    &__agree {
+      font-family: Montserrat, sans-serif;
+      line-height: 24px;
+      font-size: 16px;
+      color: #fff;
+
+      .radio-box {
+        position: relative;
+
+        .msg-required {
+          position: absolute;
+          top: -18px;
+          left: 0;
+          color: $colorRed;
+          font-family: Montserrat, sans-serif;
+          font-size: 12px;
+        }
+
+        label {
+          cursor: pointer;
+          width: 100%;
+          display: block;
+          margin-bottom: 30px;
+          font-size: 14px;
+          line-height: 22px;
+          color: #fff;
+        }
+
+        input[type=checkbox] {
+          display: none;
+        }
+
+        input[type=checkbox] + span {
+          display: inline-block;
+          float: left;
+          transition: all 0.25s ease-in-out;
+          position: relative;
+          width: 12px;
+          height: 12px;
+          text-align: center;
+          background-color: transparent;
+          border: 1px solid transparent;
+          margin: 5px 20px 45px 5px;
+        }
+
+        input[type=checkbox] + span:before {
+          position: absolute;
+          content: '';
+          top: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          border: 1px solid #fff;
+          width: 20px;
+          height: 20px;
+        }
+
+        input[type=checkbox]:checked + span {
+          background-color: #fff;
+          color: #FFFFFF;
+          border: 3px solid transparent;
+        }
+      }
+    }
+
+    &__btn {
+      display: block;
+      margin: 25px auto 0;
+      padding: 8px 30px;
+      color: #fff;
+      background-color: $colorRed;
+      font-family: Montserrat, sans-serif;
+      font-size: 22px;
+      line-height: 22px;
+      border: 2px solid $colorRed;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s linear;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+
+    &__address {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+
+      img {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+
+    &__phone,
+    &__email {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 15px;
+
+      img {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+
+  #cancellation {
+    padding-bottom: 10px;
+
+    h1 {
+      font-size: 35px;
+      padding-top: 50px;
+    }
+
+    .cancellation-form__email {
+      font-size: 18px;
+    }
+
+    .cancellation-form__agree {
+      .radio-box {
+        label {
+          font-size: 12px;
+
+          input[type=checkbox] + span {
+            margin: 5px 20px 68px 5px;
+          }
+        }
+      }
+    }
+
+    .cancellation-form__btn {
+      font-size: 14px;
+    }
+
+    .details {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      &__phone,
+      &__email {
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+}

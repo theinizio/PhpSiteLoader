@@ -1,0 +1,300 @@
+#get-in-touch {
+  background: url(../img/bg_unsubscribe.png) center no-repeat;
+  background-size: cover;
+  padding: 60px 0;
+  font-family: Josefin, sans-serif;
+
+  .form {
+    background-color: $colorOrange;
+    max-width: 400px;
+    width: 100%;
+    margin: 87px auto 0;
+    padding: 30px;
+
+    &__row {
+      position: relative;
+    }
+
+    &__title {
+      font-family: Josefin, sans-serif;
+      font-weight: 500;
+      font-size: 44px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+
+    &__label {
+      display: block;
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 5px;
+
+      .msg-required {
+        position: absolute;
+        right: 0;
+        bottom: -15px;
+        color: #fff;
+        font-family: Josefin, sans-serif;
+        font-size: 12px;
+      }
+    }
+
+    &__inp {
+      display: block;
+      width: 100%;
+      height: 30px;
+      padding: 5px 10px;
+      color: #000;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #fff;
+      font-family: Josefin, sans-serif;
+
+      &.inp-required {
+        color: $colorRed;
+        border-color: $colorRed;
+      }
+    }
+
+    &__textarea {
+      width: 100%;
+      min-height: 93px;
+      color: #000;
+      background-color: #fff;
+      border: 1px solid #fff;
+      padding: 3px 10px;
+      font-family: Josefin, sans-serif;
+      resize: none;
+    }
+
+    &__btn {
+      display: block;
+      margin: 50px auto 0;
+      padding: 10px 40px 6px;
+      color: #000;
+      background-color: #fff;
+      text-transform: uppercase;
+      font-family: Josefin, sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: all 0.2s linear;
+
+      &:hover {
+        color: #fff;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .cancel-sub {
+    margin-top: 130px;
+
+    &__title {
+      font-family: Josefin, sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .title__red {
+      color: $colorOrange;
+    }
+
+    .title__row {
+      margin-bottom: 7px;
+    }
+
+    &__p {
+      font-family: Josefin, sans-serif;
+      line-height: 26px;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+
+    .desc__block {
+      font-family: Josefin, sans-serif;
+      margin-bottom: 20px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50px;
+        background-color: $colorOrange;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+#question-section {
+  background-color: #E7E9EC;
+  padding-top: 40px;
+  padding-bottom: 70px;
+  font-family: Josefin, sans-serif;
+
+  .question-section__img {
+    width: 100%;
+    height: auto;
+  }
+
+  h4 {
+    font-family: Josefin, sans-serif;
+    line-height: 38px;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    line-height: 26px;
+    font-size: 16px;
+  }
+
+  .h2__title {
+    display: block;
+    font-family: Josefin, sans-serif;
+    font-size: 48px;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    .subtitle {
+      font-family: Josefin, sans-serif;
+      font-size: 36px;
+      text-transform: lowercase;
+    }
+  }
+
+  .faq__title {
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 170px;
+      height: 2px;
+      background-color: $colorOrange;
+      margin: 15px 25px;
+    }
+  }
+
+  .question-block {
+    max-width: 830px;
+    width: 100%;
+    padding: 25px 30px;
+    margin: 0 auto 30px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+    &__title {
+      font-family: Josefin, sans-serif;
+      font-size: 24px;
+      line-height: 32px;
+      cursor: pointer;
+    }
+
+    &__answer {
+      font-family: Josefin, sans-serif;
+      line-height: 26px;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-left: 40px;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .desc__block {
+    margin-bottom: 20px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 50px;
+      background-color: $colorOrange;
+      margin-right: 15px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  #question-section {
+    .faq__title {
+      &:before,
+      &:after {
+        width: 130px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  #get-in-touch {
+    .form__title {
+      font-size: 38px;
+    }
+
+    .cancel-sub__title {
+      font-size: 20px;
+    }
+  }
+
+  #question-section {
+    .question-section__img {
+      display: block;
+      width: 200px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .faq__title {
+      &:before,
+      &:after {
+        width: 40px;
+        margin: 10px 15px;
+      }
+    }
+
+    .question-block {
+      padding: 15px;
+
+      &__title {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      &__answer {
+        line-height: 20px;
+        font-size: 14px;
+        margin-left: 20px;
+      }
+    }
+
+    .h2__title {
+      font-size: 30px;
+      line-height: 40px;
+
+      .subtitle {
+        font-size: 24px;
+      }
+    }
+  }
+}

@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    const getEnv = () => "prod"; // change "local" to "prod"
+    console.log(`App was load with ${getEnv()} ENV settings`);
+
     $(".menu-icon").click(function () {
         $(this).toggleClass("effect");
         $('.navbar-list').toggleClass('toggleActive');

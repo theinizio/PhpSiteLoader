@@ -31,7 +31,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/getintouch",
+                url: `${getUrlMainSite()}/getintouch`,
                 data: sendData,
                 success: function (data) {
                     console.log('Success', data);
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/site_name/unsubscribe_user",
+                url: `${getUrlMainSite()}/unsubscribe_user`,
                 data: sendEmail,
                 success: function (data) {
                     console.log('Success', data);
@@ -98,5 +98,7 @@ $(document).ready(function () {
     $('input').on('focus', function() {
         $(this).removeClass('inp-required');
     });
+
+    const getUrlMainSite = () => (getEnv() === "prod") ? "https://yoursmartchef.com" : "http://yoursmartchef.loc";
 
 });

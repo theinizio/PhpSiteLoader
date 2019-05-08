@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+                var invocation = new XMLHttpRequest();
+                var url = 'http://localhost/api/template';
+
+                function callOtherDomain() {
+                    if(invocation) {
+                        invocation.open('POST', url, true);
+                        invocation.onreadystatechange = handler;
+                        invocation.send();
+                        console.log(invocation);
+                    }
+                }
+
+        */
+        var payload = {
+            p: 1,
+            template: 'Horacio Harvey'
+        };
+        var data = new FormData();
+
+        data.append("json", JSON.stringify(payload));
+        fetch('http://localhost/api/template?p=1&template=best', {
+            method: 'POST',
+        })
+            .then((response) => {
+
+                return response.json();
+            })
+            .then(res => {
+                 document.body.innerHTML = res.html;
+            })
+            .catch(err => console.error(err));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

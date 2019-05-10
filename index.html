@@ -28,6 +28,9 @@
         data.append("json", JSON.stringify(payload));
         fetch('http://localhost/api/template?p=1&template=best', {
             method: 'POST',
+            headers: new Headers({
+		'Origin': window.location.url
+	})
         })
             .then((response) => {
 

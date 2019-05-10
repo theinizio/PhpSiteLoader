@@ -7,7 +7,7 @@
 
         /*
                 var invocation = new XMLHttpRequest();
-                var url = 'http://localhost/api/template';
+                var url = 'http://localhost:8080/api/template';
 
                 function callOtherDomain() {
                     if(invocation) {
@@ -26,10 +26,10 @@
         var data = new FormData();
 
         data.append("json", JSON.stringify(payload));
-        fetch('http://localhost/api/template?p=1&template=best', {
+        fetch('http://localhost:8080/api/template?p=1&template=best', {
             method: 'POST',
             headers: new Headers({
-		'Origin': window.location.url
+		'Origin': window.location.hostname
 	})
         })
             .then((response) => {
@@ -37,7 +37,7 @@
                 return response.json();
             })
             .then(res => {
-                 document.body.innerHTML = res.html;
+                 document.body.innerHTML = res.data.html;
             })
             .catch(err => console.error(err));
 

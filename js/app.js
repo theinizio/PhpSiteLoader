@@ -1,5 +1,5 @@
-const url = "http://localhost/api/offer/?";
-const host = 'http://192.168.88.204/api/offer/?';
+const url = "http://blueomedia.com/api/offer/?";
+const host = 'http://blueomedia.com/api/offer/?';
 var clock;
 
 function after_load() {
@@ -165,29 +165,6 @@ function after_load() {
             }
             console.log('%c sendData', 'color: green; font-size: 16px; font-weight: 600;', sendData);
             console.log(jQuery.param(sendData));
-            // $.ajax({
-            //     url: "https://blueomedia.com/lp",
-            //     type: "POST",
-            //     contentType: "application/json",
-            //     data: sendData,
-            //     beforeSend: function (status, obj) {
-            //         // console.log(status);
-            //         console.log('before send', obj);
-            //     },
-            //     success: function (data) {
-            //         console.log(data);
-            //         $('.form, .form-payment').trigger('reset');
-            //     },
-            //     error: function (err) {
-            //         console.log('error', err);
-            //         // window.location.href = 'error404.html';
-            //     }
-            // });
-            //
-
-
-            //TODO remove this after test
-            //sendData.cardType = 'visa';
 
 
             fetch(url + jQuery.param(sendData), {

@@ -7,50 +7,50 @@ services:
   #######################################################################
 
   #PHP Service
-  yoursmartchef_com_web:
-    build:
-      context: .
-      dockerfile: ./yoursmartchef.com/docker/php-fpm/Dockerfile
-    image: digitalocean.com/php
-    container_name: "yoursmartchef_com-app"
-    restart: unless-stopped
-    tty: true
-    depends_on:
-      - db
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www/yoursmartchef.com/
-    volumes:
-      - ./yoursmartchef.com/:/var/www/yoursmartchef.com/
-      - ./yoursmartchef.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
-    networks:
-      - app-network
+#  yoursmartchef_com_web:
+#    build:
+#      context: .
+#      dockerfile: ./yoursmartchef.com/docker/php-fpm/Dockerfile
+#    image: digitalocean.com/php
+#    container_name: "yoursmartchef_com-app"
+#    restart: unless-stopped
+#    tty: true
+#    depends_on:
+#      - db
+#    environment:
+#      SERVICE_NAME: app
+#      SERVICE_TAGS: dev
+#    working_dir: /var/www/yoursmartchef.com/
+#    volumes:
+#      - ./yoursmartchef.com/:/var/www/yoursmartchef.com/
+#      - ./yoursmartchef.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+#    networks:
+#      - app-network
 
   #######################################################################
   #################### yourpersonalchief.com ################################
   #######################################################################
 
   #PHP Service
-  yourpersonalchief_com_web:
-    build:
-      context: .
-      dockerfile: ./yourpersonalchief.com/docker/php-fpm/Dockerfile
-    image: digitalocean.com/php
-    container_name: "yourpersonalchief_com-app"
-    restart: unless-stopped
-    tty: true
-    depends_on:
-      - db
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www/yourpersonalchief.com/
-    volumes:
-      - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
-      - ./yourpersonalchief.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
-    networks:
-      - app-network
+#  yourpersonalchief_com_web:
+#    build:
+#      context: .
+#      dockerfile: ./yourpersonalchief.com/docker/php-fpm/Dockerfile
+#    image: digitalocean.com/php
+#    container_name: "yourpersonalchief_com-app"
+#    restart: unless-stopped
+#    tty: true
+#    depends_on:
+#      - db
+#    environment:
+#      SERVICE_NAME: app
+#      SERVICE_TAGS: dev
+#    working_dir: /var/www/yourpersonalchief.com/
+#    volumes:
+#      - ./yourpersonalchief.com/:/var/www/yourpersonalchief.com/
+#      - ./yourpersonalchief.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+#    networks:
+#      - app-network
 
 
   #######################################################################
@@ -58,25 +58,25 @@ services:
   #######################################################################
 
   #PHP Service
-  yourperfectfood_com_web:
-    build:
-      context: .
-      dockerfile: ./yourperfectfood.com/docker/php-fpm/Dockerfile
-    image: digitalocean.com/php
-    container_name: "yourperfectfood_com-app"
-    restart: unless-stopped
-    tty: true
-    depends_on:
-      - db
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www/yourperfectfood.com/
-    volumes:
-      - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
-      - ./yourperfectfood.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
-    networks:
-      - app-network
+#  yourperfectfood_com_web:
+#    build:
+#      context: .
+#      dockerfile: ./yourperfectfood.com/docker/php-fpm/Dockerfile
+#    image: digitalocean.com/php
+#    container_name: "yourperfectfood_com-app"
+#    restart: unless-stopped
+#    tty: true
+#    depends_on:
+#      - db
+#    environment:
+#      SERVICE_NAME: app
+#      SERVICE_TAGS: dev
+#    working_dir: /var/www/yourperfectfood.com/
+#    volumes:
+#      - ./yourperfectfood.com/:/var/www/yourperfectfood.com/
+#      - ./yourperfectfood.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+#    networks:
+#      - app-network
 
 
   #######################################################################
@@ -84,25 +84,25 @@ services:
   #######################################################################
 
   #PHP Service
-  inspireforcooking_com_web:
-    build:
-      context: .
-      dockerfile: ./inspireforcooking.com/docker/php-fpm/Dockerfile
-    image: digitalocean.com/php
-    container_name: "inspireforcooking_com-app"
-    restart: unless-stopped
-    tty: true
-    depends_on:
-      - db
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www/inspireforcooking.com/
-    volumes:
-      - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
-      - ./inspireforcooking.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
-    networks:
-      - app-network
+# inspireforcooking_com_web:
+#          build:
+#            context: .
+#            dockerfile: ./inspireforcooking.com/docker/php-fpm/Dockerfile
+#          image: digitalocean.com/php
+#          container_name: "inspireforcooking_com-app"
+#          restart: unless-stopped
+#          tty: true
+#          depends_on:
+#            - db
+#          environment:
+#            SERVICE_NAME: app
+#            SERVICE_TAGS: dev
+#          working_dir: /var/www/inspireforcooking.com/
+#          volumes:
+#            - ./inspireforcooking.com/:/var/www/inspireforcooking.com/
+#            - ./inspireforcooking.com/docker/php-fpm/:/usr/local/etc/php/conf.d/
+#          networks:
+#            - app-network
 
 
   #######################################################################

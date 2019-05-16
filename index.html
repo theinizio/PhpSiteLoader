@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAsC8qAP+EAACzh1cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACAAAAAAAAACAAAAAAAAEiAAAAADAAAiAAAAAAMzAiAAAAAAAAMzAAAAAAAAAiMzMAAAAAAAADAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="libs/jquery.min.js"></script>
@@ -8,7 +9,10 @@
     <script src="libs/jquery.maskedinput.min.js"></script>
     <script src="libs/cleave.min.js"></script>
     <script src="js/error404.js"></script>
+    <script src="libs/flipclock/flipclock.min.js"></script>
     <script src="js/app.js"></script>
+
+    <link href="libs/flipclock/flipclock.css" rel="stylesheet">
     <script>
         fetch('http://192.168.88.204/api/template/' + window.location.search, {
             method: 'POST',
@@ -20,13 +24,13 @@
                 return response.json();
             })
             .then(res => {
-                document.body.innerHTML = res.data.html;
+                $('#loader').html(res.data.html);
                 after_load();
             })
             .catch(err => console.error(err));
     </script>
 </head>
 <body>
-
+<div id="loader"></div>
 </body>
 </html>

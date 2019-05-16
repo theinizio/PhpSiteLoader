@@ -1,18 +1,14 @@
-const url = "http://localhost/api/offer/";
+const url = "http://localhost/api/offer/?";
+const host = 'http://192.168.88.204/api/offer/?';
+var clock;
 
 function after_load() {
+
+    var cardType = '';
 
     $(".menu-icon").on('click', function () {
         $(this).toggleClass("effect1");
         $('.header__list').toggleClass('menu-active');
-    });
-
-    $('#agree').on('click', function () {
-        if ($(this).prop('checked')) {
-            $('#btn-form-submit').prop('disabled', false);
-        } else {
-            $('#btn-form-submit').prop('disabled', true);
-        }
     });
 
     $('input').on('focus', function () {
@@ -72,15 +68,19 @@ function after_load() {
                 required: 'The ZIP field is required.'
             }
         },
+        validClass: 'inp-valid',
         submitHandler: function () {
             $('.form').hide();
             $('.form-payment').show();
+            let firstName = $('[name="firstName"]').val();
+            let lastName = $('[name="lastName"]').val();
+            $('[name="name"]').val(firstName + ' ' + lastName);
         }
     });
 
     $('.form-payment').validate({
         rules: {
-            cartNumber: {
+            cardNumber: {
                 required: true,
                 minlength: 15,
                 normalizer: function (value) {
@@ -101,9 +101,9 @@ function after_load() {
             }
         },
         messages: {
-            cartNumber: {
-                required: "The Cart number field is required.",
-                minlength: "The Cart number field must be at least 15 characters."
+            cardNumber: {
+                required: "The Card number field is required.",
+                minlength: "The Card number field must be at least 15 characters."
             },
             expirationDate: {
                 required: 'The Expiration date field must be at least 4 characters.'
@@ -115,6 +115,7 @@ function after_load() {
                 required: 'The cvv field must be at least 3 characters.'
             }
         },
+        validClass: 'inp-valid',
         submitHandler: function () {
 
             let formData = {};
@@ -152,76 +153,57 @@ function after_load() {
             }
 
             let sendData = Object.assign(urlData, formData);
+
             sendData.host = hostname;
 
-            sendData.cartNumber = parseInt(sendData.cartNumber.replace(/\s+/g, ''));
+            sendData.cardType = cardType;
+            sendData.cardNumber = parseInt(sendData.cardNumber.replace(/\s+/g, ''));
             sendData.phone = parseInt(sendData.phone.replace(/\s+/g, '').match(/\d+/g).join(''));
 
-
-            console.log('sendData', jQuery.param(sendData));
-
-            // ajax
-            /*var xhr = new XMLHttpRequest();
-
-            xhr.open('POST', 'https://blueomedia.com/lp');
-
-            // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log('success');
-                }
-            };
-
-            xhr.send(sendData);*/
-
+            if (sendData.cardType === 'unknown') {
+                sendData.cardType = 'visa';
+            }
+            console.log('%c sendData', 'color: green; font-size: 16px; font-weight: 600;', sendData);
+            console.log(jQuery.param(sendData));
             // $.ajax({
-            //     // async: false,
-            //     url: url,
+            //     url: "https://blueomedia.com/lp",
             //     type: "POST",
-            //     // dataType: "jsonp",
             //     contentType: "application/json",
             //     data: sendData,
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         "Content-Type": "application/json",
-            //     },
-            //     //headers: new Headers({'Origin': window.location.hostname}),
-            //     cache: false,
-            //     //crossDomain: true,
             //     beforeSend: function (status, obj) {
-            //         console.log(status);
-            //         console.log(obj);
+            //         // console.log(status);
+            //         console.log('before send', obj);
             //     },
             //     success: function (data) {
             //         console.log(data);
             //         $('.form, .form-payment').trigger('reset');
             //     },
             //     error: function (err) {
-            //         console.log(err);
+            //         console.log('error', err);
             //         // window.location.href = 'error404.html';
             //     }
             // });
+            //
 
 
             //TODO remove this after test
-            sendData.cartType = 'visa';
+            //sendData.cardType = 'visa';
 
 
-            fetch('http://192.168.88.204/api/offer?'+jQuery.param( sendData), {
+            fetch(url + jQuery.param(sendData), {
                 method: 'POST',
                 headers: new Headers({
                     'Origin': window.location.hostname
                 }),
             })
                 .then((response) => {
-                 //   console.log(response);
+                    //   console.log(response);
                     return response.json();
                 }).then(res => {
                 console.log(res);
-            })
+                alert(res.message);
+                    })
                 .catch(err => console.error(err));
-
         }
     });
 
@@ -236,24 +218,26 @@ function after_load() {
         datePattern: ['m', 'y']
     });
 
-    var cartNumber = new Cleave('[name="cartNumber"]', {
+    var cardNumber = new Cleave('[name="cardNumber"]', {
         creditCard: true,
         onCreditCardTypeChanged: function (type) {
             // console.log(type);
+            $('#card-type').attr('src', 'img/credit_card/' + type + '.png');
+            cardType = type;
             if (type === 'unknown') {
-                $('[name="cartType"]').val('');
+                $('[name="cardType"]').val('');
                 $('[name="cvv"]').attr({
                     maxlength: 3,
                     placeholder: '000',
                 }).val('');
             } else if (type === 'amex') {
-                $('[name="cartType"]').val(type);
+                $('[name="cardType"]').val(type);
                 $('[name="cvv"]').attr({
                     maxlength: 4,
                     placeholder: '0000',
                 }).val('');
             } else {
-                $('[name="cartType"]').val(type);
+                $('[name="cardType"]').val(type);
                 $('[name="cvv"]').attr({
                     maxlength: 3,
                     placeholder: '000',
@@ -267,6 +251,54 @@ function after_load() {
     $('.only-number').bind("change keyup input click", function () {
         if ($(this).val().match(/[^0-9]/g)) {
             $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        }
+    });
+
+
+    // === MENU LANG === //
+    /*$('.localization .active').on('click', function() {
+        $('.localization .list').toggleClass('open');
+        $('.localization .active').toggleClass('rotate');
+    });
+
+    $('.localization .list li').on('click', function() {
+        let lang = $(this).find('.list__lang').attr('data-lang');
+        localStorage.setItem('lang', lang);
+        window.location.reload();
+    });*/
+
+
+    // === TRANSLATES === //
+    /*var language = localStorage.getItem('lang') || 'en';
+
+    console.log(language);
+
+    $('.localization .active').append('<img src="img/language/' + language + '.png" alt=""><span class="active__lang">' + language + '</span>');
+
+    var option = document.querySelectorAll('.localization .list__lang');
+
+    option.forEach(function (el) {
+        if (language === $(el).attr('data-lang')) {
+            $(el).parent().addClass('selected');
+        }
+    });
+
+    $("[data-localize]").localize("translate", {
+        pathPrefix: "./translates",
+        language: language
+    });*/
+
+
+    // === FLIP CLOCK === //
+    clock = $('#clock').FlipClock(5000, {
+        clockFace: 'HoursCounter',
+        autoPlay: false,
+        countdown: true,
+        // language: language,
+        callbacks: {
+            stop: function () {
+                console.log('Stop');
+            }
         }
     });
 
